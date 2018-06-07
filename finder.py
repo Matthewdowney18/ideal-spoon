@@ -22,16 +22,21 @@ def getfirstname(info):
 src = urlopen('http://manybooks.net/authors.php?alpha=' + getlastinitial(sample))
 soup = BeautifulSoup(src, "html.parser")
 
-#creating a list of links
-links=[]
-for link in soup.find_all('a'):
-    links.append(link.get('href'))
+#creating list of links, with the name tags in them
+links = []
+for a in soup.find_all('a'):
+    links.append(a)
+
+
+print(links)
+#searchObj = re.search(r'joseph', links[i], re.M | re.I)
 
 #trying to find the author(dosent work quite yet)
+
 for i in range(0,len(links)):
-    searchObj = re.search(r'(joseph)', links[i], re.M | re.I)
+    
+    searchObj = re.search(r'joseph', links[i], re.M | re.I)
     if searchObj:
         link = i
         break;
 
-print(links[link])
