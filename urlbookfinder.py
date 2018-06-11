@@ -43,6 +43,10 @@ def filefinder(link):
         i+=1
     return file
 
+
+
+
+#read the csv
 with open('fiction_sources.csv', 'r')as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='|')
 
